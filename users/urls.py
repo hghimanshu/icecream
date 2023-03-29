@@ -9,5 +9,5 @@ router.register(r'users', UserRegister)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('users/all', UserCount.as_view())
+    path('users/all', UserCount.as_view()),
 ]
