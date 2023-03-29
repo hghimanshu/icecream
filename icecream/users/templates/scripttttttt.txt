@@ -1,0 +1,11 @@
+const form = document.getElementById('email-form');
+const thankYou = document.getElementById('thank-you');
+
+form.addEventListener('submit', function(event) {
+	event.preventDefault();
+	const email = event.target.elements.email.value;
+	// Here you could submit the email to a database or email list service
+	// using AJAX or fetch
+	form.reset();
+	thankYou.style.display = 'block';
+});
