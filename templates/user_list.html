@@ -1,0 +1,7 @@
+
+<h3>Total users subscribed so far !! </h3>
+<p>{% for user in users%} 
+    {{user.email}} <br/> 
+{%endfor%}</p>
+
+<p> Count :: {{ users.count }} </p>

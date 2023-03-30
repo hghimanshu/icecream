@@ -1,6 +1,6 @@
 from .models import User
 from django.contrib import messages
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from .forms import RegistrationForm
 from django.shortcuts import redirect, render
 
@@ -17,3 +17,11 @@ class UserRegister(TemplateView):
         else:
             messages.error(request, form.errors)
         return render(request, "index.html", {"form": form})
+
+
+
+class UserData(ListView):
+    model = User
+    queryset = User.objects.all()
+    template_name = "user_list.html"
+    context_object_name = "users"

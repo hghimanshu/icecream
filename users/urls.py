@@ -1,5 +1,5 @@
 # from rest_framework import routers
-from .views import UserRegister
+from .views import UserRegister, UserData
 from django.urls import path, include
 
 
@@ -11,4 +11,5 @@ urlpatterns = [
     # path('', include(router.urls)),
     # path('users/all', UserCount.as_view()),
     path('users/', UserRegister.as_view(), name='registration'),
+    path('users/collate', UserData.as_view()),
 ]
