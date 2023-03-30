@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Company Name | Coming Soon</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	{% comment %} <link rel="stylesheet" type="text/css" href="style.css"> {% endcomment %}
 </head>
 <body>
 	<div class="container">
@@ -15,23 +15,26 @@
 		</header>
 		<main>
 <div id="f1">
-			<p>Enter your email to stay up to date with our launch:</p>
+	<form method="POST" class="post-form" name="registration">{% csrf_token %}
+		{% if messages %}
+		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+		  <div class="alert-body d-flex align-items-center">
+			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+			<span style = "margin-left: 5px;"> {% for message in messages %} {{ message }} {% endfor %} </span>
+		  </div>
+		</div>
+		{% endif %}
+
+		<p>Enter your email to stay up to date with our launch:</p>
 			
-				<input id= "email-form" type="email" name="email" placeholder="Your email address">
-				<button type="submit" onclick="myFunction()">Submit</button>
-			</div>
-			<div id="thank-you">
-				<h3>Thank you for signing up!</h3>
-				<p>We'll keep you posted on our launch.</p>
-<p id="demo"></p>
-				<button type="submit" onclick="shareOnWhatsApp()">Share</button>
-			</div>
+		<input id= "email-form" type="email" name="email" placeholder="Your email address">
+		<button type="submit" class="save btn btn-default">Submit</button>
+    </form>
+	</div>
 		</main>
 		<footer>
 			<p>&copy; Company Name 2023</p>
 		</footer>
 	</div>
-	<script src="script.js"></script>
 </body>
-<script src="script/script.js"></script>
 </html>
