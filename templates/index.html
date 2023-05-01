@@ -1,40 +1,53 @@
-<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE HTML>
 <html>
-<head>
-	<link rel="stylesheet" type="text/css" href="style/style.css">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Company Name | Coming Soon</title>
-	{% comment %} <link rel="stylesheet" type="text/css" href="style.css"> {% endcomment %}
-</head>
-<body>
-	<div class="container">
-		<header>
-			<h1>Company Name</h1>
-			<h2>Coming Soon</h2>
-		</header>
-		<main>
-<div id="f1">
-	<form method="POST" class="post-form" name="registration">{% csrf_token %}
-		{% if messages %}
-		<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
-		  <div class="alert-body d-flex align-items-center">
-			<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-			<span style = "margin-left: 5px;"> {% for message in messages %} {{ message }} {% endfor %} </span>
-		  </div>
-		</div>
-		{% endif %}
+	<head>
+		<title>CREDENCE</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+	</head>
+	<body class="is-preload">
 
-		<p>Enter your email to stay up to date with our launch:</p>
-			
-		<input id= "email-form" type="email" name="email" placeholder="Your email address">
-		<button type="submit" class="save btn btn-default">Submit</button>
-    </form>
-	</div>
-		</main>
-		<footer>
-			<p>&copy; Company Name 2023</p>
-		</footer>
-	</div>
-</body>
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="https://credence-credscore.github.io/credence/#">CREDENCE</a></h1>
+				<p>“Debit that builds Credit. For the first time, with a Credence Debit card now you could also build and improve your credit score.”<br/>
+				</p>
+			</header>
+
+		<!-- Signup Form -->
+			<form method="POST" id="signup-form" name="registration">{% csrf_token %}
+				{% if messages %}
+				<div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+				  <div class="alert-body d-flex align-items-center">
+					<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+					<span style = "margin-left: 5px;"> {% for message in messages %} {{ message }} {% endfor %} </span>
+				  </div>
+				</div>
+				<br/>
+				<br/>
+				{% endif %}
+
+				<input type="email" name="email" id="email" placeholder="Email Address" />
+				<input type="submit" value="Sign Up" />
+			</form>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+					<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>&copy; Credence.</li><li>Credits: <a href="https://credence-credscore.github.io/credence/#">Credence</a></li>
+				</ul>
+			</footer>
+
+		<!-- Scripts -->
+			<script src={% static 'js/main.js' %}></script>
+
+	</body>
 </html>
